@@ -16,7 +16,6 @@ local Library do
     gethui = gethui or function()
         return CoreGui
     end
-
     local LocalPlayer = Players.LocalPlayer
     local Camera = Workspace.CurrentCamera
     local Mouse = LocalPlayer:GetMouse()
