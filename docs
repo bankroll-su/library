@@ -1,3 +1,4 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/9x6l/library/refs/heads/main/pidorlib"))()
 local Window = Library:Window({
     Logo = "77218680285262",
     FadeTime = 0.3,
