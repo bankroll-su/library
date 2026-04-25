@@ -382,15 +382,6 @@ local Library do
 
             Library:AddToTheme(self, Properties)
         end
-
-        Instances.ChangeItemTheme = function(self, Properties)
-            if not self.Instance then 
-                return
-            end
-
-            Library:ChangeItemTheme(self, Properties)
-        end
-
         Instances.Connect = function(self, Event, Callback, Name)
             if not self.Instance then 
                 return
@@ -880,18 +871,6 @@ local Library do
             Element:Refresh(CurrentList)
         end
     end
-
-    Library.ChangeItemTheme = function(self, Item, Properties)
-        Item = Item.Instance or Item
-
-        if not self.ThemeMap[Item] then 
-            return
-        end
-
-        self.ThemeMap[Item].Properties = Properties
-        self.ThemeMap[Item] = self.ThemeMap[Item]
-    end
-
     Library.ChangeTheme = function(self, Theme, Color)
         self.Theme[Theme] = Color
 
@@ -1221,12 +1200,10 @@ local Library do
             end)
 
             Items["Inactive"]:OnHover(function()
-                Items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
                 Items["Inactive"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
             end)
 
             Items["Inactive"]:OnHoverLeave(function()
-                Items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Page Background", BorderColor3 = "Border"})
                 Items["Inactive"]:Tween(nil, {BackgroundColor3 = Library.Theme["Page Background"]})
             end)
 
@@ -1585,12 +1562,10 @@ local Library do
                 Library.Flags[Toggle.Flag] = Value 
 
                 if Toggle.Value then
-                    Items["Indicator"]:ChangeItemTheme({BackgroundColor3 = "Accent", BorderColor3 = "Border"})
                     Items["Indicator"]:Tween(nil, {BackgroundColor3 = Library.Theme.Accent})
                     task.wait(0.05)
                     Items["Check"]:Tween(TweenInfo.new(Library.Tween.Time, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {ImageTransparency = 0, Size = UDim2New(1, 2, 1, 2)})
                 else
-                    Items["Indicator"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                     Items["Indicator"]:Tween(nil, {BackgroundColor3 = Library.Theme.Element})
                     task.wait(0.05)
                     Items["Check"]:Tween(TweenInfo.new(Library.Tween.Time, Enum.EasingStyle.Back, Enum.EasingDirection.Out), {ImageTransparency = 1, Size = UDim2New(0, 0, 0, 0)})
@@ -1625,7 +1600,6 @@ local Library do
                     return 
                 end
 
-                Items["Indicator"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
                 Items["Indicator"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
             end)
 
@@ -1634,7 +1608,6 @@ local Library do
                     return 
                 end
 
-                Items["Indicator"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                 Items["Indicator"]:Tween(nil, {BackgroundColor3 = Library.Theme["Element"]})
             end)
 
@@ -1725,13 +1698,11 @@ local Library do
                 end
 
                 function NewButton:Press()
-                    SubItems["NewButton"]:ChangeItemTheme({BackgroundColor3 = "Accent", BorderColor3 = "Border"})
                     SubItems["NewButton"]:Tween(nil, {BackgroundColor3 = Library.Theme.Accent})
 
                     Library:SafeCall(Callback)
                     task.wait(0.1)
 
-                    SubItems["NewButton"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                     SubItems["NewButton"]:Tween(nil, {BackgroundColor3 = Library.Theme.Element})
                 end
 
@@ -1751,12 +1722,10 @@ local Library do
                 end
 
                 SubItems["NewButton"]:OnHover(function()
-                    SubItems["NewButton"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
                     SubItems["NewButton"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
                 end)
 
                 SubItems["NewButton"]:OnHoverLeave(function()
-                    SubItems["NewButton"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                     SubItems["NewButton"]:Tween(nil, {BackgroundColor3 = Library.Theme.Element})
                 end)
 
@@ -1968,12 +1937,10 @@ local Library do
             end)
 
             Items["Slider"]:OnHover(function()
-                Items["RealSlider"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
                 Items["RealSlider"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
             end)
 
             Items["Slider"]:OnHoverLeave(function()
-                Items["RealSlider"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                 Items["RealSlider"]:Tween(nil, {BackgroundColor3 = Library.Theme["Element"]})
             end)
 
@@ -2353,10 +2320,8 @@ local Library do
 
                 function OptionData:Toggle(Status)
                     if Status == "Active" then 
-                        OptionData.Button:ChangeItemTheme({TextColor3 = "Accent"})
                         OptionData.Button:Tween(nil, {TextColor3 = Library.Theme.Accent})
                     else
-                        OptionData.Button:ChangeItemTheme({TextColor3 = "Text"}) 
                         OptionData.Button:Tween(nil, {TextColor3 = Library.Theme.Text})
                     end
                 end
@@ -2443,12 +2408,10 @@ local Library do
             end)
 
             Items["Dropdown"]:OnHover(function()
-                Items["RealDropdown"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
                 Items["RealDropdown"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
             end)
 
             Items["Dropdown"]:OnHoverLeave(function()
-                Items["RealDropdown"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                 Items["RealDropdown"]:Tween(nil, {BackgroundColor3 = Library.Theme["Element"]})
             end)
 
@@ -2527,13 +2490,11 @@ local Library do
                     Items["PageContent"].Instance.Visible = true 
                     Items["PageContent"].Instance.Parent = Data.ContentHolder.Instance 
 
-                    Items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Background"})
                     Items["Inactive"]:Tween(nil, {BackgroundColor3 = Library.Theme.Background})
                 else
                     Items["PageContent"].Instance.Visible = false
                     Items["PageContent"].Instance.Parent = Library.UnusedHolder.Instance 
 
-                    Items["Inactive"]:ChangeItemTheme({BackgroundColor3 = "Inline"})
                     Items["Inactive"]:Tween(nil, {BackgroundColor3 = Library.Theme.Inline})
                 end
             end
@@ -4482,10 +4443,8 @@ local Library do
 
                 function OptionData:Toggle(Status)
                     if Status == "Active" then 
-                        OptionData.Button:ChangeItemTheme({TextColor3 = "Accent"})
                         OptionData.Button:Tween(nil, {TextColor3 = Library.Theme.Accent})
                     else
-                        OptionData.Button:ChangeItemTheme({TextColor3 = "Text"}) 
                         OptionData.Button:Tween(nil, {TextColor3 = Library.Theme.Text})
                     end
                 end
@@ -4561,12 +4520,10 @@ local Library do
             end
 
             Items["Listbox"]:OnHover(function()
-                Items["Listbox"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
                 Items["Listbox"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
             end)
 
             Items["Listbox"]:OnHoverLeave(function()
-                Items["Listbox"]:ChangeItemTheme({BackgroundColor3 = "Element", BorderColor3 = "Border"})
                 Items["Listbox"]:Tween(nil, {BackgroundColor3 = Library.Theme["Element"]})
             end)
 
@@ -5376,12 +5333,10 @@ local Library do
         end)
 
         Items["Input"]:OnHover(function()
-            Items["Search"]:ChangeItemTheme({BackgroundColor3 = "Hovered Element", BorderColor3 = "Border"})
             Items["Search"]:Tween(nil, {BackgroundColor3 = Library.Theme["Hovered Element"]})
         end)
 
         Items["Input"]:OnHoverLeave(function()
-            Items["Search"]:ChangeItemTheme({BackgroundColor3 = "Background", BorderColor3 = "Border"})
             Items["Search"]:Tween(nil, {BackgroundColor3 = Library.Theme.Background})
         end)
 
