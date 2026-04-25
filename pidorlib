@@ -195,21 +195,21 @@ local Library do
     }
 
     local Themes = {
-		["Preset"] = {
-			["Background"] = FromRGB(12, 14, 12),           -- Nền chính: đen pha xanh rêu
-			["Border"] = FromRGB(28, 30, 32),               -- Viền
-			["Inline"] = FromRGB(30, 32, 34),               -- Giữa các phần tử
-			["Hovered Element"] = FromRGB(50, 55, 62),      -- Hover: nhấn xanh tươi
-			["Page Background"] = FromRGB(18, 20, 18),      -- Nền trang phụ
-			["Outline"] = FromRGB(49, 53, 61),              -- Outline
-			["Element"] = FromRGB(42, 42, 42),              -- Các khối giao diện
-			["Gradient"] = FromRGB(180,214,240),          -- Gradient nhẹ, xanh tươi
-			["Text"] = FromRGB(230, 240, 245),              -- Chữ sáng, hơi ngà
-			["Text Stroke"] = FromRGB(0, 0, 0),
-			["Placeholder Text"] = FromRGB(150, 165, 175),
-			["Accent"] = FromRGB(180,204,255)
-		}
-    }
+	["Preset"] = {
+		["Background"] = FromRGB(12, 14, 18),
+		["Border"] = FromRGB(28, 30, 40),
+		["Inline"] = FromRGB(30, 32, 44),
+		["Hovered Element"] = FromRGB(50, 60, 80),
+		["Page Background"] = FromRGB(18, 20, 28),
+		["Outline"] = FromRGB(49, 53, 70),
+		["Element"] = FromRGB(42, 42, 55),
+		["Gradient"] = FromRGB(180,214,240),
+		["Text"] = FromRGB(230, 240, 245),
+		["Text Stroke"] = FromRGB(0, 0, 0),
+		["Placeholder Text"] = FromRGB(150, 165, 185),
+		["Accent"] = FromRGB(180,204,255)
+	}
+}
 
     Library.Theme = TableClone(Themes["Preset"])
 
