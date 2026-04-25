@@ -197,17 +197,17 @@ local Library do
     local Themes = {
 		["Preset"] = {
 			["Background"] = FromRGB(12, 14, 12),           -- Nền chính: đen pha xanh rêu
-			["Border"] = FromRGB(28, 32, 28),               -- Viền
-			["Inline"] = FromRGB(30, 34, 30),               -- Giữa các phần tử
-			["Hovered Element"] = FromRGB(55, 62, 50),      -- Hover: nhấn xanh tươi
+			["Border"] = FromRGB(28, 30, 32),               -- Viền
+			["Inline"] = FromRGB(30, 32, 34),               -- Giữa các phần tử
+			["Hovered Element"] = FromRGB(50, 55, 62),      -- Hover: nhấn xanh tươi
 			["Page Background"] = FromRGB(18, 20, 18),      -- Nền trang phụ
-			["Outline"] = FromRGB(65, 74, 60),              -- Outline
-			["Element"] = FromRGB(36, 42, 35),              -- Các khối giao diện
-			["Gradient"] = FromRGB(200, 240, 180),          -- Gradient nhẹ, xanh tươi
-			["Text"] = FromRGB(240, 245, 230),              -- Chữ sáng, hơi ngà
+			["Outline"] = FromRGB(49, 53, 61),              -- Outline
+			["Element"] = FromRGB(42, 42, 42),              -- Các khối giao diện
+			["Gradient"] = FromRGB(180,214,240),          -- Gradient nhẹ, xanh tươi
+			["Text"] = FromRGB(230, 240, 245),              -- Chữ sáng, hơi ngà
 			["Text Stroke"] = FromRGB(0, 0, 0),
-			["Placeholder Text"] = FromRGB(165, 175, 160),
-			["Accent"] = FromRGB(169, 242, 112)             -- 🎯 Matcha tươi
+			["Placeholder Text"] = FromRGB(150, 165, 175),
+			["Accent"] = FromRGB(180,204,255)
 		}
     }
 
